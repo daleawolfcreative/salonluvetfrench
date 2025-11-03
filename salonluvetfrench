@@ -69,21 +69,21 @@ p { margin-bottom:15px; }
 <h2>Echipa noastră</h2>
 <div class="team-container">
     <div class="team-member">
-        <img src="images/1.jpg" alt="Platon Cristina Claudia">
+        <img src="images/colega 1.jpg" alt="Platon Cristina Claudia">
         <div class="overlay"></div>
         <h3>Platon Cristina Claudia</h3>
         <p>Sunt Cristina, nail artist și mămică — două roluri care m-au învățat cât de important este să oferi grijă, răbdare și atenție fiecărui detaliu. 💅🏻</p>
         <a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn-small">PROGRAMEAZĂ-TE</a>
     </div>
     <div class="team-member">
-        <img src="images/2.jpg" alt="Moldovan Patricia Diana">
+        <img src="images/colega 2.jpg" alt="Moldovan Patricia Diana">
         <div class="overlay"></div>
         <h3>Moldovan Patricia Diana</h3>
         <p>Sunt Patricia, iar la Luvet French am descoperit locul unde pasiunea devine artă și fiecare zi e o oportunitate de a evolua. 💅🏻</p>
         <a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn-small">PROGRAMEAZĂ-TE</a>
     </div>
     <div class="team-member">
-        <img src="images/3.jpg" alt="Altman Anne-Maria">
+        <img src="images/colega 3.jpg" alt="Altman Anne-Maria">
         <div class="overlay"></div>
         <h3>Altman Anne-Maria</h3>
         <p>Sunt Anne-Maria, iar pentru mine arta unghiilor este un mod de a aduce frumusețea în armonie cu personalitatea fiecărei femei. 💅🏻</p>
@@ -189,4 +189,3 @@ updateSlide();
 
 </body>
 </html>
-

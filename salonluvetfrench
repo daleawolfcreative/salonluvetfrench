@@ -1,297 +1,192 @@
-<!--
-Project: Luvet French - Simple responsive site
-Files included below (copy each section into separate files in your repo):
-- index.html
-- style.css
-- script.js
-
-Instructions:
-1. Place all images in the same folder as the files with the exact names:
-   logoluvet.jpg, EMA.jpg, 1.jpg ... 25.jpg, colega1.jpg, colega2.jpg, colega3.jpg
-   (you used 'colega 1.jpg' etc in the prompt; recommended to rename to colega1.jpg etc.)
-2. Add the TAN Ashford font file(s) to a folder `fonts/` (e.g. fonts/TAN-Ashford.woff2) and keep the filename used below, or remove the @font-face block to use browser fallback.
-3. Push to GitHub and enable GitHub Pages (branch `main` or `gh-pages`).
-
--->
-
-<!-- ========== FILE: index.html ========== -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Luvet French — Salon de unghii</title>
-  <meta name="description" content="Luvet French — salon de unghii. Programează-te acum pentru manichiură și pedichiură executate cu atenție și rafinament.">
-  <link rel="stylesheet" href="style.css">
-  <!-- If you have TAN Ashford font file in fonts/, keep the @font-face in style.css. Otherwise it will fallback to similar fonts. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luvet French</title>
+<style>
+/* === Stiluri inline === */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'TAN Ashford', sans-serif; background:#fff; color:#222; line-height:1.6; }
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; border-bottom:1px solid #eee; position:sticky; top:0; background:#fff; z-index:100; }
+header .logo { height:60px; }
+header nav a { margin-left:25px; text-decoration:none; color:#ffb6c1; font-weight:bold; transition:0.3s; }
+header nav a:hover { color:#e59fb2; }
+section { padding:60px 20px; text-align:center; }
+.owner-photo { width:200px; border-radius:50%; margin-bottom:15px; }
+h2 { font-size:2em; margin-bottom:20px; color:#222; }
+h3 { color:#ffb6c1; margin-bottom:10px; }
+p { margin-bottom:15px; }
+.btn, .btn-small { display:inline-block; padding:12px 25px; margin:10px 0; background:#ffb6c1; color:#fff; text-decoration:none; border-radius:25px; transition:0.3s; font-weight:bold; }
+.btn:hover, .btn-small:hover { background:#e59fb2; transform:scale(1.05); }
+.team-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.team-member { width:300px; text-align:center; transition:0.3s; position:relative; }
+.team-member img { width:100%; border-radius:15px; transition:0.3s; }
+.team-member:hover img { filter:brightness(0.8); }
+.team-member .overlay { position:absolute; top:0; left:0; width:100%; height:100%; border-radius:15px; background:rgba(255,182,193,0.3); opacity:0; transition:0.3s; }
+.team-member:hover .overlay { opacity:1; }
+.carousel { position:relative; overflow:hidden; margin:40px auto; max-width:900px; }
+.carousel-track { display:flex; transition:transform 0.5s ease-in-out; }
+.slide { display:flex; gap:10px; }
+.slide img { width:30%; border-radius:10px; transition:0.3s; }
+.slide img:hover { filter:brightness(0.8); }
+.prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:#ffb6c1; border:none; font-size:2em; color:#fff; padding:8px 16px; cursor:pointer; border-radius:50%; transition:0.3s; }
+.prev:hover, .next:hover { background:#e59fb2; }
+.contact .social { width:40px; margin:0 5px; vertical-align:middle; transition:0.3s; }
+.contact .social:hover { transform:scale(1.2); }
+.footer { margin-top:20px; font-size:0.8em; color:#888; }
+@media(max-width:768px){
+    .team-container { flex-direction:column; align-items:center; }
+    .slide img { width:80%; }
+}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo-link" href="#home"><img src="logoluvet.jpg" alt="Luvet French logo" class="logo"></a>
-      <nav class="main-nav" aria-label="Navigare principală">
+
+<!-- Header -->
+<header>
+    <img src="images/logoluvet.jpg" alt="Luvet French Logo" class="logo">
+    <nav>
         <a href="#despre">Despre</a>
-        <a href="#echipa">Echipă</a>
+        <a href="#echipa">Echipa</a>
         <a href="#galerie">Galerie</a>
         <a href="#contact">Contact</a>
-      </nav>
-      <a class="btn-primary" href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" target="_blank" rel="noopener">PROGRAMEAZĂ-TE AICI</a>
-      <button class="nav-toggle" aria-label="Deschide meniul">☰</button>
+    </nav>
+</header>
+
+<!-- Sectiunea Despre -->
+<section id="despre">
+    <img src="images/EMA.jpg" alt="Ghiulgian Adin" class="owner-photo">
+    <h2>GHIULGIAN ADIN</h2>
+    <p>Sunt Ghiulgian Adin, nail tehnician și fondator Luvet French, iar tot acest proiect s-a născut din pasiune — iubirea pentru detaliu, perfecțiune și eleganță.</p>
+    <p>De la primele pensule de gel până la visul unui salon dedicat exclusiv manichiurii și pedichiurii, am vrut să creez o experiență unică.</p>
+    <p>Tematica salonului este inspirată de French-ul clasic – simbolul feminității curate, simple și rafinate. Fiecare lucrare poartă o parte din sufletul meu.</p>
+    <a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn">PROGRAMEAZĂ-TE AICI</a>
+</section>
+
+<!-- Sectiunea Echipa -->
+<section id="echipa">
+<h2>Echipa noastră</h2>
+<div class="team-container">
+    <div class="team-member">
+        <img src="images/1.jpg" alt="Platon Cristina Claudia">
+        <div class="overlay"></div>
+        <h3>Platon Cristina Claudia</h3>
+        <p>Sunt Cristina, nail artist și mămică — două roluri care m-au învățat cât de important este să oferi grijă, răbdare și atenție fiecărui detaliu. 💅🏻</p>
+        <a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn-small">PROGRAMEAZĂ-TE</a>
     </div>
-  </header>
+    <div class="team-member">
+        <img src="images/2.jpg" alt="Moldovan Patricia Diana">
+        <div class="overlay"></div>
+        <h3>Moldovan Patricia Diana</h3>
+        <p>Sunt Patricia, iar la Luvet French am descoperit locul unde pasiunea devine artă și fiecare zi e o oportunitate de a evolua. 💅🏻</p>
+        <a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn-small">PROGRAMEAZĂ-TE</a>
+    </div>
+    <div class="team-member">
+        <img src="images/3.jpg" alt="Altman Anne-Maria">
+        <div class="overlay"></div>
+        <h3>Altman Anne-Maria</h3>
+        <p>Sunt Anne-Maria, iar pentru mine arta unghiilor este un mod de a aduce frumusețea în armonie cu personalitatea fiecărei femei. 💅🏻</p>
+        <a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn-small">PROGRAMEAZĂ-TE</a>
+    </div>
+</div>
+</section>
 
-  <main id="home">
-    <!-- Hero / About -->
-    <section id="despre" class="hero container">
-      <div class="hero-left">
-        <img src="EMA.jpg" alt="Ghiulgian Adin" class="owner-photo">
-        <h2 class="owner-name">GHIULGIAN ADIN</h2>
-      </div>
-      <div class="hero-right">
-        <h1>Despre Luvet French / Love-it French</h1>
-        <p class="lead">Sunt Ghiulgian Adin, nail tehnician și fondator Luvet French, iar tot acest proiect s-a născut din pasiune — iubirea pentru detaliu, perfecțiune și eleganță.</p>
-        <p>De la primele pensule de gel până la visul unui salon dedicat exclusiv manichiurii și pedichiurii, am știut că îmi doresc mai mult decât un spațiu de înfrumusețare: am vrut să creez o experiență.</p>
-        <p>Tematica salonului, așa cum îi spune și numele, este inspirată de French-ul clasic – acel stil care nu se demodează niciodată, simbolul feminității curate, simple și rafinate.</p>
-        <p>Cred că eleganța nu ține de trenduri, ci de finețe și atenție la detalii. De aceea, fiecare lucrare poartă o parte din sufletul meu.</p>
-        <p>Echipa Luvet French reunește nail artiste talentate — Platon Cristina Claudia, Altman Anne-Maria și Moldovan Patricia Diana, profesioniste dedicate care împărtășesc aceeași viziune: de la lucrările clasice, simple și curate, până la cele mai elaborate, stilate și rafinate, fiecare creație poartă amprenta pasiunii noastre.</p>
-        <p>La Luvet French, clienții nu vin doar pentru o manichiură — vin pentru un moment de relaxare, pentru acel „răsfăț mic" care te face să te simți bine în pielea ta.</p>
-        <p>Fiecare gest, fiecare nuanță, fiecare finisaj creează o poveste. Suntem un salon ce își pune amprenta în french! Pentru că noi iubim French-ul, și pentru că Luvet înseamnă exact asta — „Love it!”</p>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section id="echipa" class="container team-section">
-      <h2>Echipa noastră</h2>
-      <div class="team-grid">
-        <!-- Colleague 1 -->
-        <article class="team-member">
-          <img src="1.jpg" alt="Platon Cristina Claudia" class="member-photo">
-          <div class="member-info">
-            <h3>Platon Cristina Claudia</h3>
-            <p class="role">Nail Artist – Luvet French</p>
-            <p>Sunt Cristina, nail artist și mămică — două roluri care m-au învățat cât de important este să oferi grijă, răbdare și atenție fiecărui detaliu. Dincolo de culoare sau formă, pentru mine manichiura și pedichiura înseamnă momente de liniște, feminitate și încredere.</p>
-            <p>La Luvet French, îmi doresc ca fiecare clientă să simtă aceeași energie caldă și echilibrată pe care o transmit zi de zi: o clipă doar pentru ea, în care se redescoperă și se bucură de micile plăceri care fac diferența.</p>
-            <a class="btn-secondary" href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" target="_blank" rel="noopener">Programează-te</a>
-          </div>
-        </article>
-
-        <!-- Colleague 2 -->
-        <article class="team-member">
-          <img src="2.jpg" alt="Moldovan Patricia Diana" class="member-photo">
-          <div class="member-info">
-            <h3>Moldovan Patricia Diana</h3>
-            <p class="role">Nail Artist Junior – Luvet French</p>
-            <p>Sunt Patricia, iar la Luvet French am descoperit locul unde pasiunea devine artă și fiecare zi e o oportunitate de a evolua. Îmi place să ofer clientelor o experiență calmă și plăcută, în care atenția la detalii se împletește cu grija și naturalețea.</p>
-            <p>Pun multă răbdare în fiecare lucrare, pentru ca rezultatul să reflecte echilibrul dintre eleganță și confort.</p>
-            <a class="btn-secondary" href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" target="_blank" rel="noopener">Programează-te</a>
-          </div>
-        </article>
-
-        <!-- Colleague 3 -->
-        <article class="team-member">
-          <img src="3.jpg" alt="Altman Anne-Maria" class="member-photo">
-          <div class="member-info">
-            <h3>Altman Anne-Maria</h3>
-            <p class="role">Nail Artist – Luvet French</p>
-            <p>Sunt Anne-Maria, iar pentru mine arta unghiilor este un mod de a aduce frumusețea în armonie cu personalitatea fiecărei femei. Îmi place să cred că perfecțiunea nu stă în formă sau culoare, ci în emoția pe care o transmite o manichiură făcută cu suflet.</p>
-            <p>Am ales să fac parte din echipa Luvet French pentru că aici am găsit exact ceea ce caut în fiecare lucrare: echilibru, rafinament și pasiune.</p>
-            <a class="btn-secondary" href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" target="_blank" rel="noopener">Programează-te</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="galerie" class="container gallery-section">
-      <h2>Galerie</h2>
-      <div class="carousel" aria-roledescription="carousel">
-        <button class="carousel-btn prev" aria-label="Anterior">◀</button>
-        <div class="carousel-track-wrapper">
-          <ul class="carousel-track">
-            <!-- Images will be injected by script.js -->
-          </ul>
+<!-- Galerie -->
+<section id="galerie">
+<h2>Galerie Unghii</h2>
+<div class="carousel">
+    <button class="prev">&#10094;</button>
+    <div class="carousel-track">
+        <!-- Slide-uri cu 3 poze fiecare -->
+        <div class="slide">
+            <img src="images/1.jpg" alt="Unghii 1">
+            <img src="images/2.jpg" alt="Unghii 2">
+            <img src="images/3.jpg" alt="Unghii 3">
         </div>
-        <button class="carousel-btn next" aria-label="Următor">▶</button>
-      </div>
-      <div class="center-cta">
-        <a class="btn-primary" href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" target="_blank" rel="noopener">PROGRAMEAZĂ-TE AICI</a>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container contact-section">
-      <h2>Contact</h2>
-      <p>📍 <strong>Locația:</strong> Strada Albert Berger nr.7, Bistrita, Bistrita-Nasaud, Romania</p>
-      <p>📞 <strong>Nr. telefon:</strong> <a href="tel:+40753793118">0753793118</a></p>
-      <p>✉️ <strong>Mail:</strong> <a href="mailto:adinghiulgian@gmail.com">adinghiulgian@gmail.com</a></p>
-      <p>
-        <a class="social" href="https://www.facebook.com/share/1FjBwjyubm/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-          <!-- Facebook SVG -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.85 7.94 9.76v-6.91H7.9v-2.85h2.04V9.8c0-2.02 1.2-3.14 3.04-3.14.88 0 1.8.16 1.8.16v1.98h-1.02c-1.01 0-1.32.63-1.32 1.27v1.52h2.24l-.36 2.85h-1.88V22C18.56 20.85 22 16.84 22 12z" fill="currentColor"/>
-          </svg>
-        </a>
-        <a class="social" href="https://www.instagram.com/ghiulgian.adin?igsh=Z2tncTloNHZncGJw" target="_blank" rel="noopener" aria-label="Instagram">
-          <!-- Instagram SVG -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.5A4.5 4.5 0 1016.5 13 4.5 4.5 0 0012 8.5zm5.5-3a1 1 0 11-1 1 1 1 0 011-1z" fill="currentColor"/>
-          </svg>
-        </a>
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>Site creat de <strong>Dalea Wolf Creative</strong>. Toate drepturile rezervate.</p>
+        <div class="slide">
+            <img src="images/4.jpg" alt="Unghii 4">
+            <img src="images/5.jpg" alt="Unghii 5">
+            <img src="images/6.jpg" alt="Unghii 6">
+        </div>
+        <div class="slide">
+            <img src="images/7.jpg" alt="Unghii 7">
+            <img src="images/8.jpg" alt="Unghii 8">
+            <img src="images/9.jpg" alt="Unghii 9">
+        </div>
+        <div class="slide">
+            <img src="images/10.jpg" alt="Unghii 10">
+            <img src="images/11.jpg" alt="Unghii 11">
+            <img src="images/12.jpg" alt="Unghii 12">
+        </div>
+        <div class="slide">
+            <img src="images/13.jpg" alt="Unghii 13">
+            <img src="images/14.jpg" alt="Unghii 14">
+            <img src="images/15.jpg" alt="Unghii 15">
+        </div>
+        <div class="slide">
+            <img src="images/16.jpg" alt="Unghii 16">
+            <img src="images/17.jpg" alt="Unghii 17">
+            <img src="images/18.jpg" alt="Unghii 18">
+        </div>
+        <div class="slide">
+            <img src="images/19.jpg" alt="Unghii 19">
+            <img src="images/20.jpg" alt="Unghii 20">
+            <img src="images/21.jpg" alt="Unghii 21">
+        </div>
+        <div class="slide">
+            <img src="images/22.jpg" alt="Unghii 22">
+            <img src="images/23.jpg" alt="Unghii 23">
+            <img src="images/24.jpg" alt="Unghii 24">
+        </div>
+        <div class="slide">
+            <img src="images/25.jpg" alt="Unghii 25">
+        </div>
     </div>
-  </footer>
+    <button class="next">&#10095;</button>
+</div>
 
-  <script src="script.js"></script>
+<a href="https://partner.notino.com/api/b2c/redirect/salons/detail?salonID=392fb65d-45cc-471b-97ca-d7a9cbbf5467" class="btn">PROGRAMEAZĂ-TE AICI</a>
+</section>
+
+<!-- Contact & Footer -->
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>📍 Locatia: Strada Albert Berger nr.7, Bistrita, Bistrita-Nasaud, Romania</p>
+<p>📞 Nr. telefon: 0753793118</p>
+<p>✉️ Mail: adinghiulgian@gmail.com</p>
+<a href="https://www.facebook.com/share/1FjBwjyubm/?mibextid=wwXIfr"><img src="images/facebook-logo.png" alt="Facebook" class="social"></a>
+<a href="https://www.instagram.com/ghiulgian.adin?igsh=Z2tncTloNHZncGJw"><img src="images/instagram-logo.png" alt="Instagram" class="social"></a>
+<p class="footer">Site creat de Dalea Wolf Creative. Toate drepturile rezervate.</p>
+</section>
+
+<!-- Script Carousel -->
+<script>
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+let currentSlide = 0;
+
+function updateSlide() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + slideWidth * currentSlide + 'px)';
+}
+
+nextButton.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlide();
+});
+
+prevButton.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlide();
+});
+
+window.addEventListener('resize', updateSlide);
+updateSlide();
+</script>
+
 </body>
 </html>
 
-
-<!-- ========== FILE: style.css ========== -->
-:root{
-  --bg: #ffffff;
-  --accent: #ffd9e6; /* pastel pink */
-  --muted-black: #222222;
-  --soft-black: rgba(0,0,0,0.75);
-  --gap: 1rem;
-  --max-w: 1100px;
-}
-
-/* TAN Ashford font: put your font file in /fonts/TAN-Ashford.woff2 and uncomment @font-face below */
-@font-face{
-  font-family: 'TAN Ashford';
-  src: url('fonts/TAN-Ashford.woff2') format('woff2');
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Fallback stack */
-body{font-family: 'TAN Ashford', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background:var(--bg); color:var(--muted-black); margin:0;}
-.container{max-width:var(--max-w);margin:0 auto;padding:1rem;}
-
-/* Header */
-.site-header{border-bottom:1px solid #f1e9ee;background:linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.98));position:sticky;top:0;z-index:50}
-.header-inner{display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem}
-.logo{height:56px;width:auto}
-.main-nav{display:flex;gap:1rem;margin-left:auto}
-.main-nav a{color:var(--soft-black);text-decoration:none;padding:0.35rem 0.6rem;border-radius:6px}
-.main-nav a:hover{background:var(--accent)}
-.btn-primary{background:var(--muted-black);color:#fff;padding:0.5rem 0.9rem;border-radius:8px;text-decoration:none;font-weight:600}
-.btn-secondary{background:transparent;border:2px solid var(--muted-black);padding:0.45rem 0.75rem;border-radius:8px;text-decoration:none;color:var(--muted-black);display:inline-block;margin-top:0.5rem}
-
-.nav-toggle{display:none;background:none;border:0;font-size:1.1rem}
-
-/* Hero */
-.hero{display:grid;grid-template-columns:270px 1fr;gap:2rem;align-items:start;padding:2rem 1rem}
-.owner-photo{width:100%;max-width:240px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
-.owner-name{text-align:center;font-size:0.95rem;margin-top:0.5rem;letter-spacing:2px}
-.lead{font-weight:600;margin-top:0}
-
-/* Team */
-.team-section h2{margin-bottom:1rem}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.team-member{background:#fff;border-radius:12px;padding:0.8rem;display:flex;gap:0.8rem;align-items:flex-start;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
-.member-photo{width:96px;height:96px;object-fit:cover;border-radius:10px;flex-shrink:0;transition:filter .2s ease}
-.member-info h3{margin:0}
-.member-info p{margin:0.4rem 0}
-.member-info .role{font-weight:600;color:var(--soft-black)}
-
-/* Gallery carousel */
-.gallery-section{padding-top:1rem}
-.carousel{display:flex;align-items:center;gap:0.5rem}
-.carousel-track-wrapper{overflow:hidden;flex:1}
-.carousel-track{display:flex;gap:0.75rem;padding:0;margin:0;list-style:none;transition:transform .45s cubic-bezier(.23,.92,.3,1)}
-.carousel-item{min-width:calc((100% - 2rem) / 3);box-sizing:border-box}
-.carousel-item img{width:100%;height:220px;object-fit:cover;border-radius:10px;display:block;filter:brightness(.95);transition:filter .18s ease, transform .18s ease}
-.carousel-item img:hover{filter:brightness(1.12);transform:translateY(-4px)}
-.carousel-btn{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:0.5rem 0.7rem;border-radius:8px}
-.center-cta{margin-top:1rem;text-align:center}
-
-/* Contact */
-.contact-section p{margin:0.5rem 0}
-.social{display:inline-flex;align-items:center;margin-right:0.6rem;color:var(--soft-black);text-decoration:none}
-
-/* Footer */
-.site-footer{border-top:1px solid #f1e9ee;padding:1rem 0;margin-top:2rem}
-.footer-inner{text-align:center;color:rgba(0,0,0,0.65)}
-
-/* Responsive */
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr;}
-  .team-grid{grid-template-columns:1fr;}
-  .carousel-item img{height:180px}
-  .main-nav{display:none}
-  .nav-toggle{display:block;margin-left:0}
-}
-
-@media (max-width:600px){
-  .carousel-item{min-width:calc((100% - 1rem) / 1)}
-  .carousel-item img{height:160px}
-}
-
-/* small helpers */
-a{color:inherit}
-
-
-<!-- ========== FILE: script.js ========== -->
-// Basic JS for navigation toggle, gallery generation and carousel controls
-(function(){
-  const navToggle = document.querySelector('.nav-toggle');
-  const mainNav = document.querySelector('.main-nav');
-  navToggle && navToggle.addEventListener('click', ()=>{
-    mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
-  });
-
-  // Gallery creation: images 1.jpg ... 25.jpg
-  const total = 25;
-  const track = document.querySelector('.carousel-track');
-  for(let i=1;i<=total;i++){
-    const li = document.createElement('li');
-    li.className = 'carousel-item';
-    const img = document.createElement('img');
-    img.src = i + '.jpg';
-    img.alt = `Unghii ${i}`;
-    li.appendChild(img);
-    track.appendChild(li);
-  }
-
-  // Carousel controls: show 3 per view on wide screens, 1 on small
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  let index = 0;
-
-  function slidesPerView(){
-    if(window.innerWidth <= 600) return 1;
-    if(window.innerWidth <= 900) return 2;
-    return 3;
-  }
-
-  function update(){
-    const perView = slidesPerView();
-    const items = document.querySelectorAll('.carousel-item');
-    const itemWidth = items[0] ? items[0].getBoundingClientRect().width + 12 : 0; // gap approx
-    const maxIndex = Math.max(0, Math.ceil(items.length / perView) - 1);
-    if(index > maxIndex) index = maxIndex;
-    const translateX = -(index * (itemWidth * perView));
-    track.style.transform = `translateX(${translateX}px)`;
-  }
-
-  nextBtn && nextBtn.addEventListener('click', ()=>{ index++; update(); });
-  prevBtn && prevBtn.addEventListener('click', ()=>{ index = Math.max(0, index-1); update(); });
-  window.addEventListener('resize', update);
-  // initial update after images load
-  window.addEventListener('load', ()=>{ setTimeout(update,120); });
-
-  // Add subtle hover illumination on team photos
-  document.querySelectorAll('.member-photo').forEach(img=>{
-    img.addEventListener('mouseenter', ()=> img.style.filter = 'brightness(1.06)');
-    img.addEventListener('mouseleave', ()=> img.style.filter = 'brightness(1)');
-  });
-
-})();
